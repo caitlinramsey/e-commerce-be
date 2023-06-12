@@ -8,8 +8,10 @@ router.get('/', (req, res) => {
   // be sure to include its associated Products
   Category.findAll().then((categoryData) => {
     res.json(categoryData);
-    // products??
   });
+  // Product.findAll().then((productData) => {
+  //   res.json(productData);
+  // });
   
 });
 
@@ -34,10 +36,19 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
   // update a category by its `id` value
-  Category.update(
-    {
-
-    }
+  Category.update(req.body, {
+   where: {
+    id: req.params.id,
+   },
+  })
+    .then((category) => {
+      // find all associated tags from Category
+      return Category.findAll({ where: { category_id: req.params.id } });
+    })
+      .then((categories) => {
+        // list of current category ids
+        const categoryIds = categories.map(({ }))
+      })
   )
 });
 
