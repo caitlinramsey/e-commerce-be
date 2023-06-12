@@ -17,17 +17,21 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
-  // find a single tag by its `id`
-  // be sure to include its associated Product data
-  Tag.findOne(
-    {
-      where: {
-        id: req.params.id
-      },
+  // find a single tag by its `id` and include its associated Product data
+  try {
+    const tagData = await Tag.findOne(req.params.id, {
+      include: [
+        { model: Product }
+      ],
+    });
+    if (!tagData) {
+      res.status(404).json({ message: 'No tag found with that id.' });
+      return;
     }
-  ).then((tagData) => {
-    res.json(tagData);
-  }); //add product data
+    res.status(200).json(tagData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 router.post('/', async (req, res) => {
