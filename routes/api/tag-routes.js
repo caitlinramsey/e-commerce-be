@@ -11,9 +11,10 @@ router.get('/', async (req, res) => {
         { model: Product }
       ],
     });
-      res.status(200).json(tagData);
-    } catch (err) {
-      res.status(500).json(err);
+    res.status(200).json(tagData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 router.get('/:id', async (req, res) => {
@@ -74,7 +75,7 @@ router.delete('/:id', async (req, res) => {
       res.status(404).json({ message: 'No tag found with that id.' });
       return;
     }
-    res.status(200).json(tagData);
+    res.status(200).json('This tag has been deleted.');
   } catch(err) {
     res.status(500).json(err);
   }
