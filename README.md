@@ -29,7 +29,7 @@ Start the database by logging into [MySQL](https://dev.mysql.com/downloads/mysql
 MIT
 
 ## Contributing
-If you would like to contribute to this application, please send me an email to discuss adding to it..
+If you would like to contribute to this application, please send me an email to discuss adding to it.
 
 ## Tests
 There are currently no tests for this application.
