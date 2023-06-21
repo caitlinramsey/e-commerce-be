@@ -44,3 +44,4 @@ Email: caitlinramsey@outlook.com
 Please email me with any questions.
 
 ## Walkthrough Video
+The walkthrough video can be viewed here: https://drive.google.com/file/d/1FaL0dQ1KT7CIszUn7mfYpPz32lXa-VJl/view
